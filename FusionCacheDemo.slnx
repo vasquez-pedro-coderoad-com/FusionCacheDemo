@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="FusionCacheDemo.API/FusionCacheDemo.API.csproj" />
+  <Project Path="FusionCacheDemo.Application/FusionCacheDemo.Application.csproj" />
+  <Project Path="FusionCacheDemo.Domain/FusionCacheDemo.Domain.csproj" />
+  <Project Path="FusionCacheDemo.Infrastructure/FusionCacheDemo.Infrastructure.csproj" />
+</Solution>

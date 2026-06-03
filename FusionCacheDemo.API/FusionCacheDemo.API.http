@@ -1,0 +1,6 @@
+@FusionCacheDemo.API_HostAddress = http://localhost:5047
+
+GET {{FusionCacheDemo.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

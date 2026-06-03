@@ -1,0 +1,140 @@
+# =============================================
+# .NET
+# =============================================
+bin/
+obj/
+out/
+publish/
+.dotnet/
+.nuget/
+
+# =============================================
+# Build Results
+# =============================================
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+artifacts/
+TestResults/
+
+# =============================================
+# Visual Studio
+# =============================================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.userprefs
+*.csproj.user
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+launchSettings.json
+
+# =============================================
+# VS Code
+# =============================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# =============================================
+# JetBrains Rider
+# =============================================
+.idea/
+*.sln.iml
+
+# =============================================
+# NuGet
+# =============================================
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+
+# =============================================
+# User Secrets & Local Config
+# =============================================
+appsettings.local.json
+appsettings.*.local.json
+secrets.json
+*.local
+.env
+.env.*
+!.env.example
+
+# =============================================
+# Logs & Temp Files
+# =============================================
+*.log
+*.tmp
+*.temp
+*.cache
+*.bak
+*.swp
+*~
+
+# =============================================
+# OS Files
+# =============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# =============================================
+# Coverage & Analysis
+# =============================================
+coverage/
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+TestResults/
+BenchmarkDotNet.Artifacts/
+
+# =============================================
+# Build Tools
+# =============================================
+.fake/
+.paket/
+paket-files/
+
+# =============================================
+# Docker
+# =============================================
+**/docker-compose.override.yml
+
+# =============================================
+# SQL
+# =============================================
+*.mdf
+*.ldf
+*.ndf
+
+# =============================================
+# Misc
+# =============================================
+ClientApp/dist/
+node_modules/
+wwwroot/
+!wwwroot/.gitkeep
+
+# Claude
+.claude/
