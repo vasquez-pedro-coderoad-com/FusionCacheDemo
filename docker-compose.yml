@@ -1,0 +1,68 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Welcome123@
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "Welcome123@" -C -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  api-pod-a:
+    build:
+      context: .
+      dockerfile: FusionCacheDemo.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=FusionCacheDemo;User Id=sa;Password=Welcome123@;TrustServerCertificate=True;
+      - ConnectionStrings__Redis=redis:6379
+      - POD_NAME=POD-A
+    ports:
+      - "5100:8080"
+    depends_on:
+      redis:
+        condition: service_healthy
+      sqlserver:
+        condition: service_healthy
+
+  api-pod-b:
+    build:
+      context: .
+      dockerfile: FusionCacheDemo.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=FusionCacheDemo;User Id=sa;Password=Welcome123@;TrustServerCertificate=True;
+      - ConnectionStrings__Redis=redis:6379
+      - POD_NAME=POD-B
+    ports:
+      - "5101:8080"
+    depends_on:
+      redis:
+        condition: service_healthy
+      sqlserver:
+        condition: service_healthy
+
+volumes:
+  redis_data:
+  sqlserver_data:

@@ -5,7 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-builder.Services.AddInfrastructure(connectionString);
+var redisConnectionString = builder.Configuration.GetConnectionString("Redis")
+    ?? "localhost:6379";
+
+builder.Services.AddInfrastructure(connectionString, redisConnectionString);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
