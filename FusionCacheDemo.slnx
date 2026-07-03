@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="DBMonitor/DBMonitor.csproj" Id="52db63c0-166d-47cd-bc55-748ad8594dca" />
   <Project Path="FusionCacheDemo.API/FusionCacheDemo.API.csproj" />
   <Project Path="FusionCacheDemo.Application/FusionCacheDemo.Application.csproj" />
   <Project Path="FusionCacheDemo.Domain/FusionCacheDemo.Domain.csproj" />
